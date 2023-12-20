@@ -2,15 +2,19 @@ package Singlton.Design.Pattern;
 
 public class Samosa {
 	private static Samosa samosa;
-	
-	//contructor
+
+	// contructor
 	private Samosa() {
-		
+
 	}
-	
+
+	// lazy way of creating
 	public static Samosa getSamosa() {
-		if(samosa==null) {
-			samosa=new Samosa();
+			synchronized (Samosa.class) {
+				if (samosa == null) {
+					samosa = new Samosa();
+				}
+				
 		}
 		return samosa;
 	}
